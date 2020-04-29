@@ -10,10 +10,13 @@ autopep8 = "*"
 pep8-naming = "*"
 flake8-docstrings = "*"
 flake8-bugbear = "*"
+jupyter = "*"
+ipython = "*"
 
 [packages]
 django = "*"
 djangorestframework = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.7"
