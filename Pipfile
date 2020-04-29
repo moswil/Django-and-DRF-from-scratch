@@ -4,6 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+flake8 = "*"
+pre-commit = "*"
+autopep8 = "*"
+pep8-naming = "*"
+flake8-docstrings = "*"
+flake8-bugbear = "*"
 
 [packages]
 django = "*"
