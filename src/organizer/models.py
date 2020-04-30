@@ -1,4 +1,5 @@
 """Django data models for organizing startup company data"""
+from django_extensions.db.fields import AutoSlugField
 from django.db.models import (
     CASCADE,
     CharField,
@@ -17,8 +18,8 @@ class Tag(Model):
     """Label to help categorize the data."""
 
     name = CharField(max_length=31, unique=True)
-    slug = SlugField(
-        max_length=31, unique=True, help_text="A label for URL config")
+    slug = AutoSlugField(
+        max_length=31, help_text="A label for URL config", populate_from=['name'])
 
     class Meta:
         ordering = ['name']
@@ -31,8 +32,8 @@ class Startup(Model):
     """Data about a startup company."""
 
     name = CharField(max_length=31, db_index=True)
-    slug = SlugField(
-        max_length=31, unique=True, help_text="A label for URL config")
+    slug = AutoSlugField(
+        max_length=31, help_text="A label for URL config", populate_from=['name'])
     description = TextField()
     founded_date = DateField('date founded')
     contact = EmailField()
