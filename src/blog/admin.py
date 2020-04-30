@@ -1,3 +1,6 @@
+"""Configures the blog app models to have visibility in the admin interface."""
 from django.contrib import admin
 
-# Register your models here.
+from blog.models import Post
+
+admin.site.register(Post)
