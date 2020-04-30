@@ -1,3 +1,11 @@
+"""Configures the blog app models to have visibility in the admin interface."""
 from django.contrib import admin
 
-# Register your models here.
+from blog.models import Post
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    """Blog Posts model view in the admin interface."""
+
+    list_display = ('name', 'slug', 'pub_date')
