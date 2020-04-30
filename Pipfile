@@ -12,6 +12,7 @@ flake8-docstrings = "*"
 flake8-bugbear = "*"
 jupyter = "*"
 ipython = "*"
+mysqlclient = "*"
 
 [packages]
 django = "*"
