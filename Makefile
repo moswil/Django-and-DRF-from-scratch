@@ -30,10 +30,13 @@ dev_collect_static:
 	docker-compose -f docker-compose.yml exec web python manage.py collectstatic --no-input --clear
 
 dev_migrate:
-	docker-compose -f docker-compose.yml run web python manage.py migrate --noinput
+	docker-compose -f docker-compose.yml run web python src/manage.py migrate --noinput
+
+dev_makemigrations:
+	docker-compose -f docker-compose.yml run web python src/manage.py makemigrations --noinput
 
 dev_create_super_user:
-	docker-compose -f docker-compose.yml exec web python manage.py createsuperuser --noinput
+	docker-compose -f docker-compose.yml exec web python src/manage.py createsuperuser --noinput
 
 dev_stop:
 	docker-compose -f docker-compose.yml down -v
@@ -45,10 +48,13 @@ dev_restart:
 	docker-compose -f docker-compose.yml restart
 
 dev_tests:
-	docker-compose -f docker-compose.yml exec web python manage.py test
+	docker-compose -f docker-compose.yml exec web python src/manage.py test
 
 dev_pytest:
 	docker-compose -f docker-compose.yml exec web pytest
 
 dev_db_ssh:
 	docker-compose -f docker-compose.yml exec db /bin/bash
+
+dev_show_dependencies:
+	docker-compose -f docker-compose.yml exec web python -m pip freeze

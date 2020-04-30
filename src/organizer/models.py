@@ -32,8 +32,8 @@ class Startup(Model):
     """Data about a startup company."""
 
     name = CharField(max_length=31, db_index=True)
-    slug = AutoSlugField(
-        max_length=31, help_text="A label for URL config", populate_from=['name'])
+    slug = SlugField(
+        max_length=31, help_text="A label for URL config", unique=True)
     description = TextField()
     founded_date = DateField('date founded')
     contact = EmailField()

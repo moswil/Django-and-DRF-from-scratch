@@ -30,7 +30,7 @@ RUN pip3 install pipenv
 # copy project
 COPY . /app
 # Install project dependencies
-RUN pipenv install --skip-lock --system
+RUN pipenv install --dev --skip-lock --system
 
 EXPOSE 8000
 

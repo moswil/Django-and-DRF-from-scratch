@@ -350,3 +350,6 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/git,linux,macos,django,python,windows,intellij+all,visualstudiocode
 
 *.env
+
+# volumes
+mariadb_data_dev/*

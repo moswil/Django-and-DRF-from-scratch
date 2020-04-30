@@ -11,6 +11,4 @@ then
     echo "MariaDB started"
 fi
 
-python manage.py collectstatic --no-input --clear
-
 exec "$@"
