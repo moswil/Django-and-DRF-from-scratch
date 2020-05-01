@@ -2,12 +2,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import (
     ListAPIView,
-    RetrieveAPIView
-)
-from rest_framework.response import Response
-from rest_framework.status import (
-    HTTP_201_CREATED,
-    HTTP_400_BAD_REQUEST
+    ListCreateAPIView,
+    RetrieveAPIView,
+    RetrieveUpdateDestroyAPIView
 )
 
 from organizer.models import NewsLink, Startup, Tag
@@ -18,29 +15,15 @@ from organizer.serializers import (
 )
 
 
-class TagAPIList(ListAPIView):
-    """Display a list of Tags."""
+class TagAPIList(ListCreateAPIView):
+    """Display a list of Tags. And allows creation of a tag on POST"""
 
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
-    def post(self, request):
-        """Create a new Tag."""
-        s_tag = self.serializer_class(
-            data=request.data,
-            context={'request': request}
-        )
 
-        if s_tag.is_valid():
-            s_tag.save()
-            return Response(
-                s_tag.data, status=HTTP_201_CREATED
-            )
-        return Response(s_tag.errors, status=HTTP_400_BAD_REQUEST)
-
-
-class TagAPIDetail(RetrieveAPIView):
-    """Display a single Tag."""
+class TagAPIDetail(RetrieveUpdateDestroyAPIView):
+    """Display a single Tag. And updates an exisiting tag on PUT/PATCH"""
 
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
