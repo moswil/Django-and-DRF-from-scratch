@@ -39,7 +39,7 @@ dev_create_super_user:
 	docker-compose -f docker-compose.yml exec web python src/manage.py createsuperuser --noinput
 
 dev_stop:
-	docker-compose -f docker-compose.yml down -v
+	docker-compose -f docker-compose.yml down
 
 dev_check_logs:
 	docker-compose -f docker-compose.yml logs -f
@@ -49,6 +49,9 @@ dev_restart:
 
 dev_tests:
 	docker-compose -f docker-compose.yml exec web python src/manage.py test
+
+dev_show_urls:
+	docker-compose -f docker-compose.yml exec web python src/manage.py show_urls
 
 dev_pytest:
 	docker-compose -f docker-compose.yml exec web pytest

@@ -352,4 +352,4 @@ $RECYCLE.BIN/
 *.env
 
 # volumes
-mariadb_data_dev/*
+mariadb_data_dev/

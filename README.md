@@ -4,6 +4,22 @@ This [repo](https://github.com/moswil/Django-and-DRF-from-scratch.git) contains 
 
 ## Install
 
+Make sure you have the following installed:
+
+- make utility
+- docker
+- docker-compose
+
+### Start Dev Server
+
+- Run the following command
+
+```bash
+make dev_start
+```
+
+- Navigate to [localhost:8000](http://localhost:8000)
+
 ## Contributing
 
 ## Licence
