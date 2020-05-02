@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./docker/web/Dockerfile
     image: django_drf_class:v1
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python src/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
@@ -18,7 +18,7 @@ services:
 
   db:
     build:
-      context: ./mariadb
+      context: ./docker/mariadb
     restart: unless-stopped
     volumes:
       - ./mariadb_data_dev:/var/lib/mysql/

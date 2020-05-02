@@ -1,29 +1,20 @@
-"""Views for the Blog App."""
+"""Viewsets for the Blog App."""
 from django.shortcuts import get_object_or_404
-from rest_framework.generics import (
-    ListAPIView,
-    RetrieveAPIView
-)
+from rest_framework.viewsets import ModelViewSet
 
 from blog.models import Post
 from blog.serializers import PostSerializer
 
 
-class PostAPIList(ListAPIView):
-    """Returns a list of all blog posts."""
+class PostViewSet(ModelViewSet):
+    """A set of views for the Post model."""
 
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-
-class PostAPIDetail(RetrieveAPIView):
-    """Return a single Post."""
-
+    lookup_field = 'slug'
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
     def get_object(self):
-        """Overides the DRF's get_object."""
+        """Override DRF's generic method."""
         month = self.kwargs.get('month')
         year = self.kwargs.get('year')
         slug = self.kwargs.get('slug')
@@ -36,7 +27,5 @@ class PostAPIDetail(RetrieveAPIView):
             pub_date__month=month,
             slug=slug
         )
-
         self.check_object_permissions(self.request, post)
-
         return post

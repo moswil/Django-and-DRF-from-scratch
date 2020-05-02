@@ -8,4 +8,4 @@ from blog.models import Post
 class PostAdmin(admin.ModelAdmin):
     """Blog Posts model view in the admin interface."""
 
-    list_display = ('name', 'slug', 'pub_date')
+    list_display = ('title', 'slug', 'pub_date')
