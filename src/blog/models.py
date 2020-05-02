@@ -26,6 +26,7 @@ class Post(Model):
     startups = ManyToManyField(
         Startup, related_name='blog_posts')
 
+
     class Meta:
         get_latest_by = ['pub_date']
         ordering = ['-pub_date', 'title']
