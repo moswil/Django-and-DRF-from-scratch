@@ -18,7 +18,7 @@ mysqlclient = "*"
 django = "*"
 djangorestframework = "*"
 django-extensions = "*"
-psycopg2 = "*"
+# psycopg2 = "*"
 
 [requires]
 python_version = "3.7"

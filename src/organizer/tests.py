@@ -1,3 +1,12 @@
 from django.test import TestCase
 
-# Create your tests here.
+from .models import Tag
+
+
+class TagModelTestCase(TestCase):
+
+    def test_create_tag(self):
+        name = 'sport'
+        # slug = 'sport'
+        tag = Tag(name=name)
+        self.assertEqual(tag.name, 'sport')
